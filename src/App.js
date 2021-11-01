@@ -1,14 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import MovieService from './components/Services/MovieService';
+
+const movieService = new MovieService();
 
 function App() {
+
+  movieService.getTrendingMovieToday ();
+
+  movieService.query = "spiderman";
+
+  movieService.getMovieQuery();
+
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
         <h1>TEST-2: goit-react-hw-04-movies</h1>
-          Edit <code>src/App.js</code> and save to reload.
+        <p>
+                  Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
