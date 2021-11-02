@@ -16,6 +16,8 @@ function App() {
   // movieService.getTrendingMovieToday ();
   // movieService.query = "spiderman";
   // movieService.getMovieQuery();
+  movieService.getMovieDetails (436969)
+  
 
   return (
     <div className="App">   
@@ -55,9 +57,9 @@ function App() {
       {/* <Route exact path="/" >  < HomePage /> </Route> */}
           <Route exact path="/" component = {HomePage} />
 
-          <Route path="/movies">  <MoviesPage/> </Route>
-
-          {/* <Route path="/movie-details-page">  <MovieDetailsPage/> </Route> */}
+          <Route path="/movies/:movieID">  <MovieDetailsPage/> </Route>
+          
+          <Route exact path="/movies">  <MoviesPage/> </Route>
 
           <Route> <p>Page not found </p> </Route>
     </Switch>

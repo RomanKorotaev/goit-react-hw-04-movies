@@ -42,11 +42,11 @@ class  MovieService {
 
 // запрос полной информации о фильме для страницы кинофильма .    Обязательные параметры: id
 //https://api.themoviedb.org/3/movie/{movie_id---268}?api_key=<<api_key>>&language=en-US
-getMovieDetails () {
-    return  axios.get ('https://api.themoviedb.org/3/movie/268?api_key=a6a8db998509fdc1dbc99a854b3d39bd')
-            .then(data => {
-            // console.log ("  getQueryMovie () запрос полной информации о фильме для страницы кинофильма  : ", data);
-            return  data;
+getMovieDetails (newMovieID) {
+    return  axios.get (`https://api.themoviedb.org/3/movie/${newMovieID}?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
+            .then(res => {
+            console.log ("  getMovieDetails (newMovieID) () запрос полной информации о фильме для страницы кинофильма   res.data : ", res.data);
+            return  res.data;
     })
     .catch(err => {
         console.log ("Oh no! Some problem!", err)
