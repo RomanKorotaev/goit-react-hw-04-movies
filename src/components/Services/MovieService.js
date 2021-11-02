@@ -51,7 +51,7 @@ getMovieDetails () {
     .catch(err => {
         console.log ("Oh no! Some problem!", err)
         alert ("Oh no! Some problem!");
-    });;
+    });
 }
 
 

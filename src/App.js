@@ -13,14 +13,14 @@ const movieService = new MovieService();
 
 function App() {
 
-  movieService.getTrendingMovieToday ();
-  movieService.query = "spiderman";
-  movieService.getMovieQuery();
+  // movieService.getTrendingMovieToday ();
+  // movieService.query = "spiderman";
+  // movieService.getMovieQuery();
 
   return (
     <div className="App">   
          <nav>
-           
+
             <ul>
                 <li>
                   <NavLink
@@ -51,24 +51,17 @@ function App() {
   </nav>
 
 
-  <p>===================</p>
+    <Switch>
+      {/* <Route exact path="/" >  < HomePage /> </Route> */}
+          <Route exact path="/" component = {HomePage} />
 
-  <Switch>
-    {/* <Route exact path="/" >  < HomePage /> </Route> */}
-        <Route exact path="/" component = {HomePage} />
+          <Route path="/movies">  <MoviesPage/> </Route>
 
-        <Route path="/movies">  <MoviesPage/> </Route>
+          {/* <Route path="/movie-details-page">  <MovieDetailsPage/> </Route> */}
 
-        {/* <Route path="/movie-details-page">  <MovieDetailsPage/> </Route> */}
+          <Route> <p>Page not found </p> </Route>
+    </Switch>
 
-        <Route> <p>Page not found </p> </Route>
-  </Switch>
-
-<p>--------------------------</p>
-        <HomePage/>
-        <MoviesPage/>
-        {/* <MovieDetailsPage/> */}
-        <p>--------------------------</p>
     </div>
   );
 }
