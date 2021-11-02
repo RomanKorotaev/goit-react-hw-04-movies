@@ -16,7 +16,7 @@ class  MovieService {
  getTrendingMovieToday () {
     return  axios.get ('https://api.themoviedb.org/3/trending/movie/day?api_key=a6a8db998509fdc1dbc99a854b3d39bd')
     .then(data => {
-    console.log (" getTrendingMovieToday () список самых популярных фильмов на сегодня  : ",data);
+    // console.log (" getTrendingMovieToday () список самых популярных фильмов на сегодня  : ",data);
     return  data;
     })
     .catch(err => {
@@ -30,7 +30,7 @@ class  MovieService {
  getMovieQuery () {
     return  axios.get (`https://api.themoviedb.org/3/search/movie?api_key=a6a8db998509fdc1dbc99a854b3d39bd&include_adult=false&query=${this.searchQuery}`)
             .then(data => {
-            console.log ("  getQueryMovie () поиск кинофильма по ключевому слову на странице фильмов  : ", data);
+            // console.log ("  getQueryMovie () поиск кинофильма по ключевому слову на странице фильмов  : ", data);
             return  data;
     })
     .catch(err => {
@@ -45,7 +45,7 @@ class  MovieService {
 getMovieDetails () {
     return  axios.get ('https://api.themoviedb.org/3/movie/268?api_key=a6a8db998509fdc1dbc99a854b3d39bd')
             .then(data => {
-            console.log ("  getQueryMovie () запрос полной информации о фильме для страницы кинофильма  : ", data);
+            // console.log ("  getQueryMovie () запрос полной информации о фильме для страницы кинофильма  : ", data);
             return  data;
     })
     .catch(err => {
@@ -60,7 +60,7 @@ getMovieDetails () {
  getMovieCredits () {
     return  axios.get ('https://api.themoviedb.org/3/movie/268/credits?api_key=a6a8db998509fdc1dbc99a854b3d39bd')
         .then(data => {
-        console.log (" getMovieCredits () запрос информации о актёрском составе   : ", data);
+        // console.log (" getMovieCredits () запрос информации о актёрском составе   : ", data);
         return  data;
     })
     .catch(err => {
@@ -74,7 +74,7 @@ getMovieDetails () {
 getMovieReviews() {
     return  axios.get ('https://api.themoviedb.org/3/movie/268/reviews?api_key=a6a8db998509fdc1dbc99a854b3d39bd')
         .then(data => {
-        console.log (" getMovieReviews() запрос обзоров для страницы кинофильма   : ", data);
+        // console.log (" getMovieReviews() запрос обзоров для страницы кинофильма   : ", data);
         return  data;
     })
     .catch(err => {

@@ -10,50 +10,33 @@ function HomePage () {
 
     const [trendingToDayMovies, setTrendingToDayMovies] = useState ([]);
 
-    let tmpArr = [];
-
-    movieService.getTrendingMovieToday ()
-    .then ( res => {
-        tmpArr= [...res.data.results];
-        console.log (" tmpArr= ",  tmpArr);
-        localStorage.setItem('trendingMovies', JSON.stringify( tmpArr));
-    })
-
-     let tmpArr2 = JSON.parse(localStorage.getItem('trendingMovies'));
-
-    //  if (tmpArr2.length!==0) {
-    //     setTrendingToDayMovies (...tmpArr2);
-    //     console.log (" trendingToDayMovies = ", trendingToDayMovies);
-    //  }
-
     useEffect ( ()=> {
 
-        if (tmpArr2.length!==0) {
-            setTrendingToDayMovies (...tmpArr2);
-            console.log (" trendingToDayMovies = ", trendingToDayMovies);
-        }
+        console.log ("Сработал useEffect"  );
 
+        movieService.getTrendingMovieToday ()
+        .then ( res => {
+            setTrendingToDayMovies ([...res.data.results]);
+            localStorage.setItem('trendingMovies', JSON.stringify( [...res.data.results] ));
+         })
+
+        console.log (" 1 trendingToDayMovies После распыления в useEffect = ", trendingToDayMovies);
     }, [])
 
 
-    return (
-
-      
-
-          <ul className=''>  Trending today
-          
-          {tmpArr2.map (data => (
-            <li  key = {data.id}>
-                {data.original_title}
-            </li>
-
-          )) }
-
-</ul>
-
-    )
     
-  
+    // const  tmpArr =  JSON.parse(localStorage.getItem('trendingMovies')) ;
+
+    console.log ("2 trendingToDayMovies После распыления  = ", trendingToDayMovies);
+    return (
+          <ul className=''>  Trending today
+                {trendingToDayMovies.map (data => (
+                    <li  key = {data.id}>
+                        {data.original_title}
+                    </li>
+                )) }
+            </ul>
+    )
 }
 
 export default HomePage;
