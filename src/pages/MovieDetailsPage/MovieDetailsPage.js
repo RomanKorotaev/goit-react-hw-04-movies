@@ -41,10 +41,11 @@ console.log ('movie =',movie );
             <p>{` Movie # ${movieID} `}</p>
             {/* <p>{` Original Title # ${oneMovie.original_title} `}</p> */}
             
-            {movie && <>
+            {movie && <div>
                         <h2>Title: {movie.original_title} </h2>
                         <p>Popularity: {movie.popularity}</p>
-                    </>
+                        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `}/>
+                    </div>
             }
 
     </div>
