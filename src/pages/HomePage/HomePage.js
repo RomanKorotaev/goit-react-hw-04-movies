@@ -10,9 +10,11 @@ const movieService = new MovieService();
 
 function HomePage () {
 
-const {url} = useRouteMatch; // берём url текущей страницы
-console.log ("url " , url );
+const {url} = useRouteMatch(); // берём url текущей страницы
 
+const match = useRouteMatch(); 
+
+console.log ('33333 const match = useRouteMatch; ', match)
 
     const [trendingToDayMovies, setTrendingToDayMovies] = useState ([]);
 
@@ -39,7 +41,7 @@ console.log ("url " , url );
 
                 {trendingToDayMovies.map ( ({id, original_title}) => (
                     <li  key = {id}>
-                        {/* <Link to={ `{url}/${id}` }> {original_title} </Link>  */}
+                         {/* <Link to={ `{url}/${id}` }> {original_title} </Link>  */}
                         <Link to={ `movies/${id}` }> {original_title} </Link>
                     </li>
                 )) }

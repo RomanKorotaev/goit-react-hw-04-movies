@@ -1,6 +1,6 @@
 function MoviePage () {
 
-    return <p>MoviePage</p>
+    return <p> компонент MoviesPage, страница поиска фильмов по ключевому слову.</p>
 }
 
 export default MoviePage;

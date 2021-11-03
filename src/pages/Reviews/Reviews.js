@@ -1,6 +1,6 @@
 function Reviews () {
 
-    return <p>Reviews</p>
+    return <p>Reviews- ОБЗОР!</p>
 }
 
 export default Reviews;
