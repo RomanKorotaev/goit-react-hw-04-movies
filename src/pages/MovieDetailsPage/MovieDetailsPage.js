@@ -4,6 +4,8 @@ import MovieService from '../../components/Services/MovieService';
 import Cast from '../Cast/Cast'
 import Reviews from "../Reviews/Reviews";
 
+import s from './MovieDetailsPage.module.css'
+
 const movieService = new MovieService();
 
 function MovieDetailsPage () {
@@ -48,26 +50,41 @@ console.log ('movie =', movie );
             {/* <p>{` Original Title # ${oneMovie.original_title} `}</p> */}
             
             {movie && <div>
-                        <h2>Title: {movie.original_title} </h2>
-                        <p>Popularity: {movie.popularity}</p>
+
+                <div className={s.movie_item}>
+
+                    <div >
+                            <h2>Title: {movie.original_title} </h2>
+                            <p>Popularity: {movie.popularity}</p>
+                            <p>Overview: {movie.overview}</p>
+
+                    </div>
+
+                    <div>
                         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `}/>
+                    </div>
+
+                </div>
+                        
+                       
             
-            <ul>
-                <li >  <NavLink  to={`${url}/cast`}> Cast </NavLink> </li>
+                                <ul> Aditional information
+                                    <li >  <NavLink activeClassName="active_link"  to={`${url}/cast`}> Cast </NavLink> </li>
 
-                <li >  <NavLink  to={`${url}/reviews`}> Reviews </NavLink></li> 
-            </ul>
+                                    <li >  <NavLink activeClassName="active_link"  to={`${url}/reviews`}> Reviews </NavLink></li> 
+                                </ul>
 
-            <hr/>
+                                <hr/>
 
-           
-            
-            <hr/>
-                      
-            <Route  path='/movies/:movieID/cast'>  <Cast/> </Route>
-            <Route  path='/movies/:movieID/reviews'>   <Reviews/> </Route>
+                            
+                                
+                                <hr/>
+                                
+                                {/* Пример вложенного маршрута */}
+                                <Route  path='/movies/:movieID/cast'>  <Cast/> </Route>
+                                <Route  path='/movies/:movieID/reviews'>   <Reviews/> </Route>
 
-            <hr/>
+                                <hr/>
                     </div>
             }
 

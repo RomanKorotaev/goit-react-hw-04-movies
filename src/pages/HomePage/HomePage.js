@@ -1,5 +1,7 @@
 import MovieService from '../../components/Services/MovieService'
 
+import s from './HomePage.module.css'
+
 import { useState,   useEffect} from 'react';
 import {Link, useRouteMatch} from 'react-router-dom'
 
@@ -37,7 +39,7 @@ console.log ('33333 const match = useRouteMatch; ', match)
 
     console.log ("2 trendingToDayMovies После распыления  = ", trendingToDayMovies);
     return (
-          <ul className=''>  Trending today
+          <ul>  <h1 className={s.trending_title}> Trending today </h1>
 
                 {trendingToDayMovies.map ( ({id, original_title}) => (
                     <li  key = {id}>

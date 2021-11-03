@@ -13,32 +13,28 @@ const movieService = new MovieService();
 
 function App() {
 
-  // movieService.getTrendingMovieToday ();
-  // movieService.query = "spiderman";
-  // movieService.getMovieQuery();
-  movieService.getMovieDetails (436969)
-  
+ 
 
   return (
     <div className="App">   
          <nav>
 
-            <ul>
-                <li>
+            <ul className ="navigation">
+                <li  className ="navigation_item">
                   <NavLink
                     exact
                     to="/"
                     className =""
-                    activeClassName=""> Home </NavLink>
+                    activeClassName="active_link"> Home </NavLink>
                 </li>
 
 
                 {/* ----------------MoviesPage ------------------ */}
-                <li>
+                <li className ="navigation_item">
                   <NavLink 
                     to="/movies"
                     className =""
-                    activeClassName=""> Movies </NavLink>
+                    activeClassName="active_link"> Movies </NavLink>
                 </li>
 
                 {/* <li>

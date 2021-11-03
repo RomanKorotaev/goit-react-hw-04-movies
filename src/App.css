@@ -1,5 +1,27 @@
+.navigation {
+  display: flex;
+  list-style-type: none;
+  /* justify-content: flex-start; */
+
+  border-bottom: 1px solid grey;
+  box-shadow: 2px 5px 2px 2px rgb(206, 204, 204);
+}
+
+.navigation_item:first-child {
+  margin-right: 50px;
+}
+
+.active_link {
+  color: blue;
+}
+
+.active_link:hover,
+.active_link:focus {
+  color: blueviolet;
+}
+
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
