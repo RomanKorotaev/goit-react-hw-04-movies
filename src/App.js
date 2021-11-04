@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import s from './App.module.css';
 
 import MovieService from './components/Services/MovieService';
 
@@ -17,25 +17,25 @@ function App() {
  
 
   return (
-    <div className="App">   
-         <nav className ="navigation">
+    <div className="">   
+         <nav className ={s.navigation}>
 
-            <ul className ="navigation_list">
-                <li  className ="navigation_item">
+            <ul className ={s.navigation_list}>
+                <li  className ={s.navigation_item}>
                   <NavLink
                     exact
                     to="/"
-                    className ="navigation_item_link"
-                    activeClassName="active_link"> Home </NavLink>
+                    className ={s.navigation_item_link}
+                    activeClassName={s.active_link}> Home </NavLink>
                 </li>
 
 
                 {/* ----------------MoviesPage ------------------ */}
-                <li className ="navigation_item">
+                <li className ={s.navigation_item}>
                   <NavLink 
                     to="/movies"
-                    className ="navigation_item_link"
-                    activeClassName="active_link"> Movies </NavLink>
+                    className ={s.navigation_item_link}
+                    activeClassName={s.active_link}> Movies </NavLink>
                 </li>
 
             </ul>

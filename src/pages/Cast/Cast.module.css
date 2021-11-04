@@ -7,3 +7,18 @@
   margin-left: 45px;
   list-style: none;
 }
+
+.actorPhoto {
+  border: 1px solid rgb(143, 85, 10);
+  border-radius: 10px;
+}
+
+.actorDescr {
+  background-color: rgb(224, 139, 26);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.trending_list_item {
+  width: 200px;
+}

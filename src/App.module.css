@@ -23,6 +23,17 @@ img {
   text-decoration: none;
 }
 
+body {
+  text-align: left;
+  background-color: white;
+  /* background-image: url("./image/phoneBookBackgr.jpg"); */
+  background-image: url("./image/backdroundImg.jpg");
+  background-image: url("./image/f2.jpg");
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-repeat: repeat;
+}
+
 .navigation {
   margin-bottom: 20px;
 }
@@ -41,8 +52,8 @@ img {
   /* text-decoration: none; */
 
   list-style: none;
-  border-bottom: 1px solid grey;
-  box-shadow: 2px 5px 2px 2px rgb(206, 204, 204);
+  border-bottom: 1px solid rgb(143, 85, 10);
+  box-shadow: 2px 5px 2px 2px rgb(143, 85, 10);
 }
 
 .navigation_item:first-child {
@@ -51,9 +62,11 @@ img {
 
 .active_link {
   color: blue;
+  color: rgb(143, 85, 10);
 }
 
 .navigation_item_link {
+  font-weight: 500;
   text-decoration: none;
 }
 

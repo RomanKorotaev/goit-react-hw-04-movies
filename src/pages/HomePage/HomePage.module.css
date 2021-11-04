@@ -6,16 +6,17 @@
 }
 
 .trending_list {
-  color: red;
+  color: black;
   padding-left: 45px;
 }
 
 .trending_list_item {
-  font-size: 20px;
+  font-size: 25px;
+  list-style: circle;
+  margin-bottom: 5px;
 }
 
 .trending_list_item:hover {
-  color: blue;
-  list-style: curcle;
-  list-style-type: circle;
+  color: rgb(143, 85, 10);
+  list-style: outside;
 }

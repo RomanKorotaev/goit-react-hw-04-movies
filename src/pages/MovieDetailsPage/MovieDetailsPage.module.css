@@ -1,7 +1,14 @@
+.movieDetailsContiner {
+  /* background-color: rgb(127, 168, 245); */
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 .movie_item {
   display: flex;
   padding: 15px;
-  border: 2px solid blue;
+  border: 2px solid rgb(143, 85, 10);
+  border-radius: 10px;
 }
 
 .movie_description {
@@ -9,7 +16,7 @@
 }
 
 .movie_poster {
-  border: 3px solid blue;
+  border: 3px solid rgb(143, 85, 10);
   border-radius: 25px;
   overflow: hidden;
 }
@@ -17,4 +24,5 @@
 .description_item {
   font-size: 25px;
   margin-top: 10px;
+  list-style: none;
 }

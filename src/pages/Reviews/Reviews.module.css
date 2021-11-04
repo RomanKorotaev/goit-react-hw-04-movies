@@ -1,0 +1,13 @@
+.reviewItem {
+  margin-top: 15px;
+  padding: 5px;
+
+  list-style: none;
+
+  border: 1px solid rgb(143, 85, 10);
+  border-radius: 10px;
+}
+
+.reviewItem_author {
+  margin-bottom: 5px;
+}

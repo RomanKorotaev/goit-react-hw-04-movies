@@ -23,28 +23,9 @@ useEffect ( ()=> { //Во время запроса по ID приводили �
 
 console.log ('movie =', movie );
 
-//  console.log ('Сработала функция MovieDetailsPage ()  .  movieID=',movieID );
-
-//  console.log ("typeof  movieID : ", typeof  movieID )
-
-//  let oneMovie= {};
-
-//     //Сначала записываем в класс айдишник, по которому будем искать, а потом вызываем соответствующую функцию поиска фильма по ID
-//     movieService.movieIdFunc=    Number (movieID)   ;
-//     movieService.getMovieDetails()
-//     .then(res=> { 
-//         console.log ("Сработала функция getMovieDetails  - res.data : ", oneMovie= res.data)
-//         console.log ("oneMovie= res.data : ", oneMovie);
-//         console.log ("typeof  oneMovie : ", typeof  oneMovie )
-//     });
-
-//     // Снова делаем запрос на бекенд, новый. Поскольку пользовалель напрямую может зайти
-//     // по этой ссылке , миную сохранённый/закешированный список всех фильмов 
-
-//     console.log ("3 oneMovie=  : ", oneMovie);
 
     return (
-    <div>
+    <div className={s.movieDetailsContiner}>
             <p>компонент MovieDetailsPage, страница с детальной информацией о кинофильме  </p>
             <p>{` Movie # ${movieID} `}</p>
                        
@@ -64,13 +45,10 @@ console.log ('movie =', movie );
                             
 
                     </div>
-
-                   
+     
 
                 </div>
                         
-                       
-            
                                 <ul className={s.description_item}> <b>Aditional information</b>
                                     <li className={s.description_item}>  <NavLink activeClassName="active_link"  to={`${url}/cast`}> Cast </NavLink> </li>
 

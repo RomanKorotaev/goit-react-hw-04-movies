@@ -28,21 +28,21 @@ function Reviews () {
         }, [])
 
     return ( <div> 
-            <h1 className=''>  Reviews:  </h1>
-        
-            {moviesReviews.length<1
-             ? <p> No reviews about this movie.</p>
-            :  <ul>
-                { moviesReviews.map ( ({author, content} )=> (
-                    <li>
-                        <p>Author: {author}</p>
-                        <p>Review: {content}</p>
-                    </li>
-                    ))} 
-                </ul>
-             }
+                <h1 className=''>  Reviews:  </h1>
+            
+                {moviesReviews.length<1
+                ? <p> No reviews about this movie.</p>
+                :  <ul>
+                    { moviesReviews.map ( ({author, content} )=> (
+                        <li className={s.reviewItem}>
+                            <p className={s.reviewItem_author}><b>Author: </b>{author}</p>
+                            <p className={s.reviewItem_content}><b>Review:</b> {content}</p>
+                        </li>
+                        ))} 
+                    </ul>
+                }
 
-    </div> 
+            </div> 
      )
 }
 

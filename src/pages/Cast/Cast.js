@@ -33,14 +33,14 @@ function Cast () {
                     {moviesCast.map ( ({id,name, character, profile_path}) => (
                             <li className={s.trending_list_item} key = {id}>
                                 <div className={s.actorPhotoTmb}>
-                                        <img  className="" alt='Picture of actor'  src={`https://image.tmdb.org/t/p/w200/${profile_path} ` }/>
+                                        <img  className={s.actorPhoto} alt='Picture of actor'  src={`https://image.tmdb.org/t/p/w200/${profile_path} ` }/>
                                 </div>
                                 
-                                <div> About actor:
+                                <div className={s.actorDescr}> 
                                     <p>Name of actor: {name}</p>
-                                    <p>Character iт movie: {character}</p>
+                                    <p>Character in movie: {character}</p>
                                     <p></p>
-                                    </div> 
+                                </div> 
                             </li>
                     )) }
                 </ul>
