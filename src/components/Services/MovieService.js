@@ -71,8 +71,8 @@ getMovieDetails (newMovieID) {
 
 // запрос обзоров для страницы кинофильма.                                     Обязательные параметры: id
 //https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
-getMovieReviews() {
-    return  axios.get ('https://api.themoviedb.org/3/movie/268/reviews?api_key=a6a8db998509fdc1dbc99a854b3d39bd')
+getMovieReviews(newMovieID) {
+    return  axios.get (`https://api.themoviedb.org/3/movie/${newMovieID}/reviews?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
         .then(data => {
         // console.log (" getMovieReviews() запрос обзоров для страницы кинофильма   : ", data);
         return  data;
