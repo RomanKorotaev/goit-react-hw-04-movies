@@ -14,30 +14,43 @@ const movieService = new MovieService();
 function MoviesPage () {
 
     const [ quiryWord, setQuiryWord] = useState ("");
+    const [ moviesArray, setMoviesArray] = useState ([]);
 
 
 
     movieService.getMovieQuery("bond")
     .then (res => {
-        console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ : ",res)
-        console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ - ПОДРОБНО : ",res.data.results)
-
+        console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ : ", res)
+        console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ - ПОДРОБНО : ", res.data.results)
+        setMoviesArray([...res.data.results])
     });
 
 
+    
 
 
-    // const handleSubmitForm = quiryWord => {
-    //     console.log("Вызвана функция handleSubmitForm = (quiryWord) : ", quiryWord);
-    //     setQuiryWord (quiryWord) ;
-    //   }
+
+    const handleSubmitForm = quiryWord => {
+        console.log("Вызвана функция handleSubmitForm = (quiryWord) : ", quiryWord);
+        setQuiryWord (quiryWord) ;
+      }
 
     
           
     return (
         <div>
                 <p> компонент MoviesPage, страница поиска фильмов по ключевому слову.</p>
-                < SearchForm />
+                < SearchForm onFormSubmit= {handleSubmitForm} />
+
+                <ul>
+                    { moviesArray.map ( oneMovie => (
+                        <li>
+                            Movie: { oneMovie.original_title}
+                            </li>
+                    ))
+
+                    }
+                </ul>
         </div>
 
     )
