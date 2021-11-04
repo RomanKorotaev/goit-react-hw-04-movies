@@ -1,4 +1,21 @@
 .trending_title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+
+.trending_list {
+  color: red;
+  padding-left: 45px;
+}
+
+.trending_list_item {
+  font-size: 20px;
+}
+
+.trending_list_item:hover {
+  color: blue;
+  list-style: curcle;
+  list-style-type: circle;
 }

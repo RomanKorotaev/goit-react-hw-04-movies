@@ -1,8 +1,46 @@
-.navigation {
-  display: flex;
-  list-style-type: none;
-  /* justify-content: flex-start; */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
 
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.navigation {
+  margin-bottom: 20px;
+}
+
+.navigation_list {
+  display: flex;
+  font-size: 30px;
+
+  /* list-style-type: none; */
+  /*  list-style: none; */
+
+  padding-left: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  /* text-decoration: none; */
+
+  list-style: none;
   border-bottom: 1px solid grey;
   box-shadow: 2px 5px 2px 2px rgb(206, 204, 204);
 }
@@ -15,13 +53,12 @@
   color: blue;
 }
 
-.active_link:hover,
-.active_link:focus {
-  color: blueviolet;
+.navigation_item_link {
+  text-decoration: none;
 }
 
-.App {
-  /* text-align: center; */
+/* .App {
+  text-align: center;
 }
 
 .App-logo {
@@ -32,10 +69,9 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
-  }
-}
+  } */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -57,4 +93,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

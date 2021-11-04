@@ -39,17 +39,18 @@ console.log ('33333 const match = useRouteMatch; ', match)
 
     console.log ("2 trendingToDayMovies После распыления  = ", trendingToDayMovies);
     return (
-          <ul>  <h1 className={s.trending_title}> Trending today </h1>
+          <ul className={s.trending_list}>  
+              <h1 className={s.trending_title}> Trending today </h1>
 
-                {trendingToDayMovies.map ( ({id, original_title}) => (
-                    <li  key = {id}>
+                {trendingToDayMovies.map ( ({id, original_title, vote_count}) => (
+                        <li className={s.trending_list_item} key = {id}>
                          {/* <Link to={ `{url}/${id}` }> {original_title} </Link>  */}
                         <Link to={ `movies/${id}` }> {original_title} </Link>
                     </li>
                 )) }
-                
             </ul>
     )
+    
 }
 
 export default HomePage;

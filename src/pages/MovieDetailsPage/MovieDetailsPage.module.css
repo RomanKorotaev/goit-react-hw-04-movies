@@ -1,3 +1,20 @@
-movie_item {
+.movie_item {
   display: flex;
+  padding: 15px;
+  border: 2px solid blue;
+}
+
+.movie_description {
+  margin-left: 40px;
+}
+
+.movie_poster {
+  border: 3px solid blue;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.description_item {
+  font-size: 25px;
+  margin-top: 10px;
 }

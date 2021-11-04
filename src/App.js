@@ -4,6 +4,7 @@ import './App.css';
 import MovieService from './components/Services/MovieService';
 
 import {NavLink, Route, Switch} from 'react-router-dom';
+import "../node_modules/modern-normalize/modern-normalize.css"
 
 import HomePage from './pages/HomePage';
 import MoviesPage from './pages/MoviesPage';
@@ -17,14 +18,14 @@ function App() {
 
   return (
     <div className="App">   
-         <nav>
+         <nav className ="navigation">
 
-            <ul className ="navigation">
+            <ul className ="navigation_list">
                 <li  className ="navigation_item">
                   <NavLink
                     exact
                     to="/"
-                    className =""
+                    className ="navigation_item_link"
                     activeClassName="active_link"> Home </NavLink>
                 </li>
 
@@ -33,16 +34,9 @@ function App() {
                 <li className ="navigation_item">
                   <NavLink 
                     to="/movies"
-                    className =""
+                    className ="navigation_item_link"
                     activeClassName="active_link"> Movies </NavLink>
                 </li>
-
-                {/* <li>
-                  <NavLink 
-                  to="/movie-details-page"
-                  className =""
-                  activeClassName=""> MovieDetailsPage </NavLink>
-                </li> */}
 
             </ul>
 

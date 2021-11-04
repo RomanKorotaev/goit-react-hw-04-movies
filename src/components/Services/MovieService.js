@@ -57,8 +57,8 @@ getMovieDetails (newMovieID) {
 
 // запрос информации о актёрском составе                                 Обязательные параметры: id
 //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
- getMovieCredits () {
-    return  axios.get ('https://api.themoviedb.org/3/movie/268/credits?api_key=a6a8db998509fdc1dbc99a854b3d39bd')
+ getMovieCredits (newMovieID) {
+    return  axios.get (`https://api.themoviedb.org/3/movie/${newMovieID}/credits?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
         .then(data => {
         // console.log (" getMovieCredits () запрос информации о актёрском составе   : ", data);
         return  data;

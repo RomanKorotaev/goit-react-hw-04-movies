@@ -47,31 +47,34 @@ console.log ('movie =', movie );
     <div>
             <p>компонент MovieDetailsPage, страница с детальной информацией о кинофильме  </p>
             <p>{` Movie # ${movieID} `}</p>
-            {/* <p>{` Original Title # ${oneMovie.original_title} `}</p> */}
-            
+                       
             {movie && <div>
 
                 <div className={s.movie_item}>
 
-                    <div >
-                            <h2>Title: {movie.original_title} </h2>
-                            <p>Popularity: {movie.popularity}</p>
-                            <p>Overview: {movie.overview}</p>
-
-                    </div>
-
                     <div>
-                        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `}/>
+                        <img  className={s.movie_poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `}/>
                     </div>
+
+                    <div className={s.movie_description}>
+                            <h2>Title: {movie.original_title} </h2>
+                            <p className={s.description_item} > <b>Popularity: </b> {movie.popularity}</p>
+                            <p className={s.description_item}> <b> Overview: </b> {movie.overview}</p>
+                            <p className={s.description_item}> <b> Avarage vote: </b> {movie.vote_average}</p>
+                            
+
+                    </div>
+
+                   
 
                 </div>
                         
                        
             
-                                <ul> Aditional information
-                                    <li >  <NavLink activeClassName="active_link"  to={`${url}/cast`}> Cast </NavLink> </li>
+                                <ul className={s.description_item}> <b>Aditional information</b>
+                                    <li className={s.description_item}>  <NavLink activeClassName="active_link"  to={`${url}/cast`}> Cast </NavLink> </li>
 
-                                    <li >  <NavLink activeClassName="active_link"  to={`${url}/reviews`}> Reviews </NavLink></li> 
+                                    <li className={s.description_item}>  <NavLink activeClassName="active_link"  to={`${url}/reviews`}> Reviews </NavLink></li> 
                                 </ul>
 
                                 <hr/>
