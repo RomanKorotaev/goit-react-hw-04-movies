@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import {useParams, NavLink, Route, useRouteMatch} from "react-router-dom" // возвращает объект динамических параметров ( то ято идут после двоеточия в   <Route path="/movies/:movieID"> в App.js)
+import {useParams, Link, useRouteMatch} from "react-router-dom" // возвращает объект динамических параметров ( то ято идут после двоеточия в   <Route path="/movies/:movieID"> в App.js)
 import MovieService from '../../components/Services/MovieService';
 import s from './MoviesPage.module.css'
 import SearchForm from "../SearchForm/SearchForm";
@@ -18,9 +18,6 @@ function MoviesPage () {
     const [ quiryWord, setQuiryWord] = useState ("");
     const [ moviesArray, setMoviesArray] = useState ([]);
 
-
-
-   
 
      useEffect ( ()=> { 
 
@@ -56,18 +53,17 @@ function MoviesPage () {
     return (
 
         <div>
-                <p> компонент MoviesPage, страница поиска фильмов по ключевому слову.</p>
+                {/* <p> компонент MoviesPage, страница поиска фильмов по ключевому слову.</p> */}
                 < SearchForm onFormSubmit= {handleSubmitForm} />
+                
 
-                <ul>hgfjhfhjf
-                    { moviesArray.map ( ({id, original_title}) => (
-                        <li key = {id}>
-                            Movie: {original_title}
-                            {/* <NavLink to={  `{url}/${id}` }> {original_title} </NavLink> */}
-                        </li>
-                    ))
-
-                    }
+                <ul>
+                        { moviesArray.map ( ({id, original_title}) => (
+                                <li key = {id}>
+                                    <Link to={ `movies/${id}` }> {original_title} </Link>
+                                </li>
+                            )) 
+                        }
                 </ul>
         </div>
 

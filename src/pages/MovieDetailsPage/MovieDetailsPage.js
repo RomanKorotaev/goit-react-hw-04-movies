@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useParams, NavLink, Route, useRouteMatch} from "react-router-dom" // возвращает объект динамических параметров ( то ято идут после двоеточия в   <Route path="/movies/:movieID"> в App.js)
+import {useParams, NavLink, Link, Route, useRouteMatch} from "react-router-dom" // возвращает объект динамических параметров ( то ято идут после двоеточия в   <Route path="/movies/:movieID"> в App.js)
 import MovieService from '../../components/Services/MovieService';
 import Cast from '../Cast/Cast'
 import Reviews from "../Reviews/Reviews";
@@ -26,10 +26,12 @@ console.log ('movie =', movie );
 
     return (
     <div className={s.movieDetailsContiner}>
-            <p>компонент MovieDetailsPage, страница с детальной информацией о кинофильме  </p>
-            <p>{` Movie # ${movieID} `}</p>
+            {/* <p>компонент MovieDetailsPage, страница с детальной информацией о кинофильме  </p>
+            <p>{` Movie # ${movieID} `}</p> */}
                        
             {movie && <div>
+
+                <Link className={s.goBackBtn} to={ `/` }> Go back </Link>
 
                 <div className={s.movie_item}>
 
@@ -54,18 +56,9 @@ console.log ('movie =', movie );
 
                                     <li className={s.description_item}>  <NavLink activeClassName="active_link"  to={`${url}/reviews`}> Reviews </NavLink></li> 
                                 </ul>
-
-                                <hr/>
-
-                            
-                                
-                                <hr/>
-                                
                                 {/* Пример вложенного маршрута */}
                                 <Route  path='/movies/:movieID/cast'>  <Cast/> </Route>
                                 <Route  path='/movies/:movieID/reviews'>   <Reviews/> </Route>
-
-                                <hr/>
                     </div>
             }
 

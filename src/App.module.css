@@ -42,14 +42,9 @@ body {
   display: flex;
   font-size: 30px;
 
-  /* list-style-type: none; */
-  /*  list-style: none; */
-
   padding-left: 100px;
   padding-top: 15px;
   padding-bottom: 15px;
-
-  /* text-decoration: none; */
 
   list-style: none;
   border-bottom: 1px solid rgb(143, 85, 10);
@@ -66,8 +61,14 @@ body {
 }
 
 .navigation_item_link {
+  padding: 10px;
   font-weight: 500;
   text-decoration: none;
+}
+
+.navigation_item_link:hover {
+  background-color: rgb(192, 119, 23);
+  border-radius: 10px;
 }
 
 /* .App {
