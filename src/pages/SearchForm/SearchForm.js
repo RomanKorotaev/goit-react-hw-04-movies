@@ -36,7 +36,7 @@ function SearchForm( {onFormSubmit} ) {
                 {/* <span className=''>Search</span> */}
                 Search
                 <ImSearch style={{marginLeft: 15 }}/>
-                
+               
               </button>
 
                 <input
@@ -50,7 +50,6 @@ function SearchForm( {onFormSubmit} ) {
                 />
 
             </form>
-
         </div>
     )
 }

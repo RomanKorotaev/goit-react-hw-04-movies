@@ -3,9 +3,7 @@ import {useParams, NavLink, Link, Route, useRouteMatch} from "react-router-dom" 
 import MovieService from '../../components/Services/MovieService';
 import Cast from '../Cast/Cast'
 import Reviews from "../Reviews/Reviews";
-
-
-import {IoIosArrowRoundBack } from "react-icons/io";
+import {ImArrowLeft2, ImArrowUp2} from 'react-icons/im'
 
 
 import s from './MovieDetailsPage.module.css'
@@ -34,8 +32,8 @@ console.log ('movie =', movie );
             {movie && <div>
 
                 <Link className={s.goBackBtn} to={ `/` }> 
-                     {/* <IoIosArrowRoundBack className={s.goBackArrow}/> */}
-                    Go back 
+                    <ImArrowLeft2 style={{marginRight: 10 }}/>
+                      Go back 
                 </Link>
 
                 <div className={s.movie_item} >
@@ -67,7 +65,10 @@ console.log ('movie =', movie );
                                 <Route  path='/movies/:movieID/reviews'>   <Reviews/> </Route>
                     </div>
             }
-            <a href="#pageTop" className={s.goUpBtn}> Go up </a> 
+            <a href="#pageTop" className={s.goUpBtn}>
+                <ImArrowUp2 style={{marginRight: 10 }}/>
+                 Go up
+            </a> 
 
     </div>
     )
