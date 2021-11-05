@@ -28,23 +28,26 @@ function Cast () {
 
         return  (
             <div>  <h2 className={s.trending_title}> Actors:  </h2>
-            <ul className={s.actors_list}> 
-                {/* <h1 className={s.trending_title}> Actors:  </h1> */}
-
-                    {moviesCast.map ( ({id,name, character, profile_path}) => (
-                            <li className={s.trending_list_item} key = {id}>
-                                <div className={s.actorPhotoTmb}>
-                                        <img  className={s.actorPhoto} alt='Picture of actor'  src={`https://image.tmdb.org/t/p/w200/${profile_path} ` }/>
-                                </div>
-                                
-                                <div className={s.actorDescr}> 
-                                    <p>Name of actor: {name}</p>
-                                    <p>Character in movie: {character}</p>
-                                    <p></p>
-                                </div> 
-                            </li>
-                    )) }
-                </ul>
+            
+            {moviesCast.length<1
+                ? <p> No information about actors.</p>
+                : <ul className={s.actors_list}> 
+                    {/* <h1 className={s.trending_title}> Actors:  </h1> */}
+                        {moviesCast.map ( ({id,name, character, profile_path}) => (
+                                <li className={s.trending_list_item} key = {id}>
+                                    <div className={s.actorPhotoTmb}>
+                                            <img  className={s.actorPhoto} alt='Picture of actor'  src={`https://image.tmdb.org/t/p/w200/${profile_path} ` }/>
+                                    </div>
+                                    
+                                    <div className={s.actorDescr}> 
+                                        <p>Name of actor: {name}</p>
+                                        <p>Character in movie: {character}</p>
+                                        <p></p>
+                                    </div> 
+                                </li>
+                        )) }
+                    </ul>
+                }
             </div>
         
         )

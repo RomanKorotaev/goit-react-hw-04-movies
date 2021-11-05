@@ -1,14 +1,19 @@
-// import logo from './logo.svg';
-import s from './App.module.css';
-
-import MovieService from './components/Services/MovieService';
 
 import {NavLink, Route, Switch} from 'react-router-dom';
 import "../node_modules/modern-normalize/modern-normalize.css"
+import Loader from "react-loader-spinner";
+import s from './App.module.css';
+import MovieService from './components/Services/MovieService';
+//STATIC IMPORTS
+// import HomePage from './pages/HomePage';
+// import MoviesPage from './pages/MoviesPage';
+// import MovieDetailsPage from './pages/MovieDetailsPage'
 
-import HomePage from './pages/HomePage';
-import MoviesPage from './pages/MoviesPage';
-import MovieDetailsPage from './pages/MovieDetailsPage'
+//DYNAMIC IMPORTS . All Components have to export DEFAULT !!!
+import {lazy, Suspense} from'react';
+const HomePage = lazy( ()=> import('./pages/HomePage') ) 
+const MoviesPage = lazy( ()=> import('./pages/MoviesPage') )
+const  MovieDetailsPage = lazy( ()=> import('./pages/MovieDetailsPage') )
 
 const movieService = new MovieService();
 
@@ -42,18 +47,28 @@ function App() {
 
   </nav>
 
+    {/* <Suspense fallback="Wait please...">   Этот компонент нужен для корректной работы <Switch> при диннамическом импорте наших компонентов */}
+    <Suspense fallback={
+                      <Loader
+                        className="Loader"
+                        type="Circles"
+                        color="rgb(143, 85, 10)"
+                        height={100}
+                        width={100}
+                      />
+                    }>
 
-    <Switch>
-      {/* <Route exact path="/" >  < HomePage /> </Route> */}
-          <Route exact path="/" component = {HomePage} />
+      <Switch>
+        {/* <Route exact path="/" >  < HomePage /> </Route> */}
+            <Route exact path="/" component = {HomePage} />
 
-          <Route path="/movies/:movieID">  <MovieDetailsPage/> </Route>
-          
-          <Route exact path="/movies">  <MoviesPage/> </Route>
+            <Route path="/movies/:movieID">  <MovieDetailsPage/> </Route>
+            
+            <Route exact path="/movies">  <MoviesPage/> </Route>
 
-          <Route> <p>Page not found </p> </Route>
-    </Switch>
-
+            <Route> <p>Page not found </p> </Route>
+      </Switch>
+    </Suspense>
     </div>
   );
 }

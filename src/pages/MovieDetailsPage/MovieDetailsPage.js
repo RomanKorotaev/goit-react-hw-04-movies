@@ -25,7 +25,7 @@ console.log ('movie =', movie );
 
 
     return (
-    <div className={s.movieDetailsContiner}>
+    <div className={s.movieDetailsContiner} id="pageTop">
             {/* <p>компонент MovieDetailsPage, страница с детальной информацией о кинофильме  </p>
             <p>{` Movie # ${movieID} `}</p> */}
                        
@@ -33,7 +33,7 @@ console.log ('movie =', movie );
 
                 <Link className={s.goBackBtn} to={ `/` }> Go back </Link>
 
-                <div className={s.movie_item}>
+                <div className={s.movie_item} >
 
                     <div>
                         <img  className={s.movie_poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `} alt='Movie poster'/>
@@ -62,6 +62,7 @@ console.log ('movie =', movie );
                                 <Route  path='/movies/:movieID/reviews'>   <Reviews/> </Route>
                     </div>
             }
+            <a href="#pageTop" className={s.goUpBtn}> Go up </a> 
 
     </div>
     )
