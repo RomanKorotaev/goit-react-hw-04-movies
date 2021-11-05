@@ -4,6 +4,10 @@ import MovieService from '../../components/Services/MovieService';
 import Cast from '../Cast/Cast'
 import Reviews from "../Reviews/Reviews";
 
+
+import {IoIosArrowRoundBack } from "react-icons/io";
+
+
 import s from './MovieDetailsPage.module.css'
 
 const movieService = new MovieService();
@@ -26,12 +30,13 @@ console.log ('movie =', movie );
 
     return (
     <div className={s.movieDetailsContiner} id="pageTop">
-            {/* <p>компонент MovieDetailsPage, страница с детальной информацией о кинофильме  </p>
-            <p>{` Movie # ${movieID} `}</p> */}
-                       
+          
             {movie && <div>
 
-                <Link className={s.goBackBtn} to={ `/` }> Go back </Link>
+                <Link className={s.goBackBtn} to={ `/` }> 
+                     {/* <IoIosArrowRoundBack className={s.goBackArrow}/> */}
+                    Go back 
+                </Link>
 
                 <div className={s.movie_item} >
 

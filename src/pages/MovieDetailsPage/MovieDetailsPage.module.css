@@ -47,6 +47,20 @@
   border: 2px solid white;
 }
 
+.goBackArrow {
+  width: 40px;
+  height: 40px;
+  padding: 1px;
+  /* border: 2px solid white; */
+  color: rgb(143, 85, 10);
+  margin-right: 10px;
+}
+
+.goBackArrow:hover,
+.goBackArrow:focus {
+  color: white;
+}
+
 .aditionalInf_title {
   font-size: 30px;
   font-weight: 700;
@@ -65,7 +79,7 @@
   font-size: 25px;
   font-weight: 700;
   color: rgb(143, 85, 10);
-  color: red;
+  /* color: red; */
   border: 2px solid rgb(143, 85, 10);
   border-radius: 10px;
   padding: 10px;

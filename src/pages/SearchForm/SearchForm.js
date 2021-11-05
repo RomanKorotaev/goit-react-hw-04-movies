@@ -1,5 +1,8 @@
 import { useState, useCallback} from 'react';
 import s from './SearchForm.module.css'
+import {ImSearch} from 'react-icons/im'
+
+
 function SearchForm( {onFormSubmit} ) {
     
     const [quiryWord, setQuiryWord] = useState ('');
@@ -30,7 +33,10 @@ function SearchForm( {onFormSubmit} ) {
            
             <form onSubmit={handleSubmit}  className={s.searchForm}>
               <button type="submit" className={s.submitBtn }>
-                <span className=''>Search</span>
+                {/* <span className=''>Search</span> */}
+                Search
+                <ImSearch style={{marginLeft: 15 }}/>
+                
               </button>
 
                 <input
@@ -44,6 +50,7 @@ function SearchForm( {onFormSubmit} ) {
                 />
 
             </form>
+
         </div>
     )
 }
