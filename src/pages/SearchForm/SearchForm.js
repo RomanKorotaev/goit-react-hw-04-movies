@@ -1,5 +1,5 @@
 import { useState, useCallback} from 'react';
-
+import s from './SearchForm.module.css'
 function SearchForm( {onFormSubmit} ) {
     
     const [quiryWord, setQuiryWord] = useState ('');
@@ -27,15 +27,14 @@ function SearchForm( {onFormSubmit} ) {
 
     return (
         <div className=''>
-            <p>SearchForm</p>
-
-            <form onSubmit={handleSubmit}  className=''>
-              <button type="submit" className=''>
+           
+            <form onSubmit={handleSubmit}  className={s.searchForm}>
+              <button type="submit" className={s.submitBtn }>
                 <span className=''>Search</span>
               </button>
 
                 <input
-                className=''
+                className={s.inputStyle }
                 type="text"
                 autoComplete="off"
                 autoFocus

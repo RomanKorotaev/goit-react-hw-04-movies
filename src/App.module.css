@@ -25,9 +25,9 @@ img {
 
 body {
   text-align: left;
-  background-color: white;
-  /* background-image: url("./image/phoneBookBackgr.jpg"); */
-  background-image: url("./image/backdroundImg.jpg");
+  background-color: grey;
+
+  /* background-image: url("./image/backdroundImg.jpg"); */
   background-image: url("./image/f2.jpg");
   /* background-size: cover; */
   background-repeat: no-repeat;
@@ -56,7 +56,6 @@ body {
 }
 
 .active_link {
-  color: blue;
   color: rgb(143, 85, 10);
 }
 
@@ -67,7 +66,8 @@ body {
 }
 
 .navigation_item_link:hover {
-  background-color: rgb(192, 119, 23);
+  color: white;
+  border: 1px solid white;
   border-radius: 10px;
 }
 

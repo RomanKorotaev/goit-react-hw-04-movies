@@ -36,7 +36,7 @@ console.log ('movie =', movie );
                 <div className={s.movie_item}>
 
                     <div>
-                        <img  className={s.movie_poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `}/>
+                        <img  className={s.movie_poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `} alt='Movie poster'/>
                     </div>
 
                     <div className={s.movie_description}>
@@ -50,11 +50,12 @@ console.log ('movie =', movie );
      
 
                 </div>
-                        
-                                <ul className={s.description_item}> <b>Aditional information</b>
-                                    <li className={s.description_item}>  <NavLink activeClassName="active_link"  to={`${url}/cast`}> Cast </NavLink> </li>
+                        <h3 className={s.aditionalInf_title}>Aditional information</h3>
 
-                                    <li className={s.description_item}>  <NavLink activeClassName="active_link"  to={`${url}/reviews`}> Reviews </NavLink></li> 
+                                <ul className={s.aditionalInf_list}> 
+                                    <li className={s.aditionalInf_item}>  <NavLink activeClassName=''  to={`${url}/cast`}> Cast </NavLink> </li>
+
+                                    <li className={s.aditionalInf_item}>  <NavLink activeClassName=''  to={`${url}/reviews`}> Reviews </NavLink></li> 
                                 </ul>
                                 {/* Пример вложенного маршрута */}
                                 <Route  path='/movies/:movieID/cast'>  <Cast/> </Route>

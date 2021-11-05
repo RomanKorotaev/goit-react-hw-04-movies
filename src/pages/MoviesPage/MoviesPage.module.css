@@ -1,0 +1,26 @@
+.movie_list {
+  color: black;
+  padding-left: 45px;
+
+  margin-left: 30px;
+  margin-right: 30px;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  border: 2px solid rgb(143, 85, 10);
+  border-radius: 10px;
+}
+
+.movie_list_item {
+  font-size: 25px;
+  font-style: italic;
+  list-style: circle;
+  margin-bottom: 5px;
+}
+
+.movie_list_item:hover {
+  color: rgb(143, 85, 10);
+  list-style: outside;
+  color: white;
+}

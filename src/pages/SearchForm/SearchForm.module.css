@@ -1,1 +1,30 @@
+.submitBtn {
+  font-size: 30px;
+  font-weight: 700;
+  display: inline-block;
 
+  color: rgb(143, 85, 10);
+  border: 2px solid rgb(143, 85, 10);
+  padding: 5px;
+  background-color: white;
+
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+.submitBtn:hover,
+.submitBtn:focus {
+  border: 2px solid white;
+}
+
+.searchForm {
+  margin-left: 70px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.inputStyle {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 5px;
+}

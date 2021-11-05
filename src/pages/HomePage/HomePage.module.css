@@ -16,8 +16,6 @@
   padding-top: 15px;
   padding-bottom: 15px;
 
-  /* border: 2px solid black; */
-
   border: 2px solid rgb(143, 85, 10);
   border-radius: 10px;
 }
@@ -32,4 +30,5 @@
 .trending_list_item:hover {
   color: rgb(143, 85, 10);
   list-style: outside;
+  color: white;
 }

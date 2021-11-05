@@ -27,8 +27,9 @@ function Cast () {
         }, [])
 
         return  (
-            <ul className={s.actors_list}>  
-                <h1 className={s.trending_title}> Actors:  </h1>
+            <div>  <h2 className={s.trending_title}> Actors:  </h2>
+            <ul className={s.actors_list}> 
+                {/* <h1 className={s.trending_title}> Actors:  </h1> */}
 
                     {moviesCast.map ( ({id,name, character, profile_path}) => (
                             <li className={s.trending_list_item} key = {id}>
@@ -44,6 +45,7 @@ function Cast () {
                             </li>
                     )) }
                 </ul>
+            </div>
         
         )
 }

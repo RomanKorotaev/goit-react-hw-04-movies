@@ -55,11 +55,9 @@ function MoviesPage () {
         <div>
                 {/* <p> компонент MoviesPage, страница поиска фильмов по ключевому слову.</p> */}
                 < SearchForm onFormSubmit= {handleSubmitForm} />
-                
-
-                <ul>
+                <ul className={s.movie_list}>
                         { moviesArray.map ( ({id, original_title}) => (
-                                <li key = {id}>
+                                <li className={s.movie_list_item} key = {id}>
                                     <Link to={ `movies/${id}` }> {original_title} </Link>
                                 </li>
                             )) 
