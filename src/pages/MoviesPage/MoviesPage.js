@@ -26,7 +26,9 @@ function MoviesPage () {
      useEffect ( ()=> { 
 
         if ( quiryWord!=="") {
-        movieService.getMovieQuery(quiryWord)
+
+        movieService.query= quiryWord; //Устанавливаем в классе, который работает с бекендом, значение поискового слова
+        movieService.getMovieQuery()
             .then (res => {
                 console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ : ", res)
                 console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ - ПОДРОБНО : ", res.data.results)

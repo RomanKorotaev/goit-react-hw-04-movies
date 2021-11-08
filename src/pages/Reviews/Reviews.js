@@ -15,7 +15,9 @@ function Reviews () {
     const [moviesReviews , setMoviesReviews ] = useState ([]);
 
     useEffect ( ()=> {
-        movieService.getMovieReviews(movieID)
+        //Во время запроса по ID приводили его от строки к числу и передаём в сеттер класса, который делает запрос на бекенд
+        movieService.movieIdFunc =Number (movieID)
+        movieService.getMovieReviews()
         .then ( res => {
             console.log ("Обзор фильма:", res)
                     console.log ("Обзор фильма ПОДРОБНО:", res.data.results)

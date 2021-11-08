@@ -21,8 +21,12 @@ function MovieDetailsPage () {
     // свойство url для того чтобы отрендерить на этойже странице "неперезагружающиеся"
     //ссфлки NavLink с комопонентами  Cast и Reviews
 
-useEffect ( ()=> { //Во время запроса по ID приводили его от строки к числу
-    movieService.getMovieDetails( Number (movieID) ).then(res=> setMovie(res))
+useEffect ( ()=> { 
+    
+    //Во время запроса по ID приводили его от строки к числу и передаём в сеттер класса, который делает запрос на бекенд
+    movieService.movieIdFunc =Number (movieID)
+    movieService.getMovieDetails()
+    .then(res=> setMovie(res))
 }, [movieID]) 
 
 console.log ('movie =', movie );

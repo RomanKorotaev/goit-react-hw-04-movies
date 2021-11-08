@@ -27,8 +27,8 @@ class  MovieService {
 
 
 // поиск кинофильма по ключевому слову на странице фильмов . Обязательные параметры: query=batman
- getMovieQuery (newQuery) {
-    return  axios.get (`https://api.themoviedb.org/3/search/movie?api_key=a6a8db998509fdc1dbc99a854b3d39bd&include_adult=false&query=${newQuery}`)
+ getMovieQuery () {
+    return  axios.get (`https://api.themoviedb.org/3/search/movie?api_key=a6a8db998509fdc1dbc99a854b3d39bd&include_adult=false&query=${this.searchQuery}`)
             .then(data => {
             // console.log ("  getQueryMovie () поиск кинофильма по ключевому слову на странице фильмов  : ", data);
             return  data;
@@ -42,10 +42,10 @@ class  MovieService {
 
 // запрос полной информации о фильме для страницы кинофильма .    Обязательные параметры: id
 //https://api.themoviedb.org/3/movie/{movie_id---268}?api_key=<<api_key>>&language=en-US
-getMovieDetails (newMovieID) {
-    return  axios.get (`https://api.themoviedb.org/3/movie/${newMovieID}?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
+getMovieDetails () {
+    return  axios.get (`https://api.themoviedb.org/3/movie/${this.movieID}?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
             .then(res => {
-            console.log ("  getMovieDetails (newMovieID) () запрос полной информации о фильме для страницы кинофильма   res.data : ", res.data);
+            console.log ("  getMovieDetails  () запрос полной информации о фильме для страницы кинофильма   res.data : ", res.data);
             return  res.data;
     })
     .catch(err => {
@@ -57,8 +57,8 @@ getMovieDetails (newMovieID) {
 
 // запрос информации о актёрском составе                                 Обязательные параметры: id
 //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
- getMovieCredits (newMovieID) {
-    return  axios.get (`https://api.themoviedb.org/3/movie/${newMovieID}/credits?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
+ getMovieCredits () {
+    return  axios.get (`https://api.themoviedb.org/3/movie/${this.movieID}/credits?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
         .then(data => {
         // console.log (" getMovieCredits () запрос информации о актёрском составе   : ", data);
         return  data;
@@ -71,8 +71,8 @@ getMovieDetails (newMovieID) {
 
 // запрос обзоров для страницы кинофильма.                                     Обязательные параметры: id
 //https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
-getMovieReviews(newMovieID) {
-    return  axios.get (`https://api.themoviedb.org/3/movie/${newMovieID}/reviews?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
+getMovieReviews() {
+    return  axios.get (`https://api.themoviedb.org/3/movie/${this.movieID}/reviews?api_key=a6a8db998509fdc1dbc99a854b3d39bd`)
         .then(data => {
         // console.log (" getMovieReviews() запрос обзоров для страницы кинофильма   : ", data);
         return  data;

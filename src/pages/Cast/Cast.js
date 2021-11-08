@@ -18,7 +18,9 @@ function Cast () {
         console.log ("Для тестирования новых функций, проверим useParams и получим диннамический параметр из адресной строки - идентификатор фильма movieID : ", movieID)
 
     useEffect ( ()=> {
-        movieService.getMovieCredits(movieID)
+        //Во время запроса по ID приводили его от строки к числу и передаём в сеттер класса, который делает запрос на бекенд
+        movieService.movieIdFunc =Number (movieID)
+        movieService.getMovieCredits()
         .then ( res => {
             console.log ("Список актёров ПОДРОБНО", res.data.cast)
             setMoviesCast ([...res.data.cast])
