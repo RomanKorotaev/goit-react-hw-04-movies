@@ -4,7 +4,7 @@ import {useParams, Link, useRouteMatch} from "react-router-dom" // возвра�
 import MovieService from '../../components/Services/MovieService';
 import s from './MoviesPage.module.css'
 import SearchForm from "../SearchForm/SearchForm";
-
+import {useHistory, useLocation } from "react-router";
 
 
 
@@ -12,6 +12,10 @@ const movieService = new MovieService();
 
 
 function MoviesPage () {
+
+    const location = useLocation ();
+    console.log ("MoviesPage  location = ", location);
+    const history = useHistory ();
 
     const {url} = useRouteMatch(); // берём url текущей страницы
 
@@ -58,7 +62,20 @@ function MoviesPage () {
                 <ul className={s.movie_list}>
                         { moviesArray.map ( ({id, original_title}) => (
                                 <li className={s.movie_list_item} key = {id}>
-                                    <Link to={ `movies/${id}` }> {original_title} </Link>
+                                   
+                                    {/* Вариант №1 */}
+                                    {/* <Link to={ `movies/${id}` }> {original_title} </Link> */}
+
+                        {/* Вариане №2 */}
+                        {/* Хревцова.Зан.10.  1:16:00 */}
+                        <Link to={ {
+                            pathname: `movies/${id}`,
+                            state: {
+                                from: { location, label: `BACK TO...`},
+                            }
+
+                        } }> {original_title} </Link>
+
                                 </li>
                             )) 
                         }

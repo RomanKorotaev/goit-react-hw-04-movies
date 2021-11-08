@@ -5,6 +5,8 @@ import Cast from '../Cast/Cast'
 import Reviews from "../Reviews/Reviews";
 import {ImArrowLeft2, ImArrowUp2} from 'react-icons/im'
 
+import { useHistory, useLocation } from "react-router";
+
 
 import s from './MovieDetailsPage.module.css'
 
@@ -26,6 +28,29 @@ useEffect ( ()=> { //Во время запроса по ID приводили �
 console.log ('movie =', movie );
 
 
+
+
+ {/* ---------------Start------------- */}
+
+ const history = useHistory();
+ console.log ("MovieDetailsPage  history = ", history)
+
+
+ const location = useLocation ();
+ console.log ("MovieDetailsPage  location = ", location)
+
+ const handleClick = () => { 
+    //  alert ("BACK")
+    //  history.push ("/movies")
+
+     console.log ( "location.state.from", location.state.from);
+     console.log ( "location?.state?.from?.location", location?.state?.from?.location ?? `/movies`);
+     history.push (location?.state?.from?.location ?? `/movies`)
+ }
+
+{/* --------------End-------------- */}
+
+
     return (
     <div className={s.movieDetailsContiner} id="pageTop">
           
@@ -35,6 +60,19 @@ console.log ('movie =', movie );
                     <ImArrowLeft2 style={{marginRight: 10 }}/>
                       Go back 
                 </Link>
+
+   {/* ---------------Start------------- */}
+
+                <button type="button" onClick={handleClick}>
+                    BACK
+                    </button>
+
+    {/* --------------End-------------- */}
+
+
+
+
+
 
                 <div className={s.movie_item} >
 
