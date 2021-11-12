@@ -14,13 +14,15 @@ const movieService = new MovieService();
 function MoviesPage () {
 
     const location = useLocation ();
-    console.log ("MoviesPage  location = ", location);
     const history = useHistory ();
 
     const {url} = useRouteMatch(); // берём url текущей страницы
 
     const [ quiryWord, setQuiryWord] = useState ("");
     const [ moviesArray, setMoviesArray] = useState ([]);
+
+    // localStorage.setItem('moviesLocalStorage',   JSON.stringify( [])  );
+    // const [ moviesArray, setMoviesArray] = useState ( 'moviesLocalStorage',   JSON.stringify( ) );
 
 
      useEffect ( ()=> { 
@@ -33,8 +35,14 @@ function MoviesPage () {
                 console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ : ", res)
                 console.log ("СПИСОК НАЙДЕННЫХ ФИЛЬМОВ - ПОДРОБНО : ", res.data.results)
                     if (res.data.results.length !== 0) { 
-                        setMoviesArray([...res.data.results]) // ВАЖНО СИНТАКСИС: именно так в данной функции записываем массив
+                        // setMoviesArray([...res.data.results]) // ВАЖНО СИНТАКСИС: именно так в данной функции записываем массив
                         console.log (" Записали hits  в   -  moviesArray через хуки (аналог componentDidUpdate )",  moviesArray );
+
+                         // Записываем массив фильмов в localStorage
+                        localStorage.setItem('moviesLocalStorage',   JSON.stringify( [...res.data.results])  );
+                        setMoviesArray ( JSON.parse(localStorage.getItem('moviesLocalStorage') ) );
+                        console.log ("666666 :",  JSON.parse(localStorage.getItem('moviesLocalStorage') )  )
+                        console.log ("777777777 moviesArray : ", moviesArray)
                     }  
             })
             .catch(() => {
@@ -54,7 +62,6 @@ function MoviesPage () {
 
       console.log ("quiryWord = ", quiryWord)
 
-
           
     return (
 
@@ -65,18 +72,18 @@ function MoviesPage () {
                         { moviesArray.map ( ({id, original_title}) => (
                                 <li className={s.movie_list_item} key = {id}>
                                    
-                                    {/* Вариант №1 */}
-                                    {/* <Link to={ `movies/${id}` }> {original_title} </Link> */}
+                                                {/* Вариант №1 */}
+                                                {/* <Link to={ `movies/${id}` }> {original_title} </Link> */}
 
-                        {/* Вариане №2 */}
-                        {/* Хревцова.Зан.10.  1:16:00 */}
-                        <Link to={ {
-                            pathname: `movies/${id}`,
-                            state: {
-                                from: { location, label: `BACK TO...`},
-                            }
+                                    {/* Вариане №2 */}
+                                    {/* Хревцова.Зан.10.  1:16:00 */}
+                                    <Link to={ {
+                                        pathname: `movies/${id}`,
+                                        state: {
+                                            from: { location, label: `BACK TO...`},
+                                        }
 
-                        } }> {original_title} </Link>
+                                    } }> {original_title} </Link>
 
                                 </li>
                             )) 
