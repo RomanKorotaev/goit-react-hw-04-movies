@@ -1,5 +1,7 @@
 import {useParams} from "react-router-dom"
 import { useState,   useEffect} from 'react';
+import person from '../../image/person.png'
+import human from '../../image/human.png'
 
 import  MovieService from '../../components/Services/MovieService'
 
@@ -28,6 +30,9 @@ function Cast () {
 
         }, [])
 
+        console.log ("moviesCast : ", moviesCast)
+        let TEST_VAR = null;
+
         return  (
             <div>  <h2 className={s.trending_title}> Actors:  </h2>
             
@@ -38,7 +43,12 @@ function Cast () {
                         {moviesCast.map ( ({id,name, character, profile_path}) => (
                                 <li className={s.trending_list_item} key = {id}>
                                     <div className={s.actorPhotoTmb}>
-                                            <img  className={s.actorPhoto} alt='Picture of actor'  src={`https://image.tmdb.org/t/p/w200/${profile_path} ` }/>
+
+                                            {profile_path
+                                            ? <img  className={s.actorPhoto} alt= 'Picture of actor.'  src={`https://image.tmdb.org/t/p/w200/${profile_path} ` }/>
+                                            : <img  className={s.actorPhoto} alt= 'Pic of actor.'  src={human}/>
+                                            }
+                                        
                                     </div>
                                     
                                     <div className={s.actorDescr}> 

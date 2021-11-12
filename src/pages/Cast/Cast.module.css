@@ -21,6 +21,7 @@
 
   display: grid;
   max-width: calc(100vw - 48px);
+
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   /* grid-template-columns: 200px 200px 200px; */
   grid-gap: 16px;
@@ -37,6 +38,7 @@
 .actorPhoto {
   border: 1px solid rgb(143, 85, 10);
   border-radius: 10px;
+  height: auto;
 }
 
 .actorDescr {
@@ -53,6 +55,7 @@
 .ImageGallery {
   display: grid;
   max-width: calc(100vw - 48px);
+
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 16px;
   margin-top: 0;
