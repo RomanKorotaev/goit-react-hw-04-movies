@@ -40,10 +40,10 @@ function MoviesPage () {
 
                          // Записываем массив фильмов в localStorage
                         localStorage.setItem('moviesLocalStorage',   JSON.stringify( [...res.data.results])  );
-                        setMoviesArray ( JSON.parse(localStorage.getItem('moviesLocalStorage') ) );
-                        console.log ("666666 :",  JSON.parse(localStorage.getItem('moviesLocalStorage') )  )
-                        console.log ("777777777 moviesArray : ", moviesArray)
+                        setMoviesArray ( JSON.parse(localStorage.getItem('moviesLocalStorage') ) );                       
                     }  
+
+                   
             })
             .catch(() => {
                 alert("Something wrong. Please try again later");
@@ -53,8 +53,7 @@ function MoviesPage () {
 
        }, [quiryWord] )
 
-
-
+      
     const handleSubmitForm = quiryWord => {
         console.log("Вызвана функция handleSubmitForm = (quiryWord) : ", quiryWord);
         setQuiryWord (quiryWord) ;
