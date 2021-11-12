@@ -38,7 +38,7 @@
 .actorPhoto {
   border: 1px solid rgb(143, 85, 10);
   border-radius: 10px;
-  height: auto;
+  min-height: 300px;
 }
 
 .actorDescr {
