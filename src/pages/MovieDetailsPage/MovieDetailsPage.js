@@ -4,6 +4,7 @@ import MovieService from '../../components/Services/MovieService';
 import Cast from '../Cast/Cast'
 import Reviews from "../Reviews/Reviews";
 import {ImArrowLeft2, ImArrowUp2} from 'react-icons/im'
+import movieCamera from '../../image/movieCamera.png'
 
 import { useHistory, useLocation } from "react-router";
 
@@ -19,7 +20,7 @@ function MovieDetailsPage () {
 
     const {url}  = useRouteMatch(); // деструктуризируем из объекта useRouteMatch
     // свойство url для того чтобы отрендерить на этойже странице "неперезагружающиеся"
-    //ссфлки NavLink с комопонентами  Cast и Reviews
+    //ссылки NavLink с комопонентами  Cast и Reviews
 
 useEffect ( ()=> { 
     
@@ -56,19 +57,20 @@ console.log ('movie =', movie );
 
 
     return (
-    <div className={s.movieDetailsContiner} id="pageTop">
+    <div className={s.movieDetailsContiner} >
           
             {movie && <div>
 
-                <Link className={s.goBackBtn} to={ `/` }> 
+                {/* <Link className={s.goBackBtn} to={ `/` }> 
                     <ImArrowLeft2 style={{marginRight: 10 }}/>
                       Go back 
-                </Link>
+                </Link> */}
 
    {/* ---------------Start------------- */}
 
-                <button type="button" onClick={handleClick}>
-                    BACK
+                <button className={s.goBackBtn} type="button" onClick={handleClick}>
+                    <ImArrowLeft2 style={{marginRight: 10 }}/>
+                    Go back!
                     </button>
 
     {/* --------------End-------------- */}
@@ -81,7 +83,11 @@ console.log ('movie =', movie );
                 <div className={s.movie_item} >
 
                     <div>
-                        <img  className={s.movie_poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `} alt='Movie poster'/>
+                        { movie.poster_path
+                          ?<img  className={s.movie_poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path} `} alt='Movie poster'/>
+                          :<img  className={s.movie_poster} src={movieCamera} alt='Movie poster'/>
+                        }
+                      
                     </div>
 
                     <div className={s.movie_description}>
@@ -98,19 +104,39 @@ console.log ('movie =', movie );
                         <h3 className={s.aditionalInf_title}>Aditional information</h3>
 
                                 <ul className={s.aditionalInf_list}> 
-                                    <li className={s.aditionalInf_item}>  <NavLink activeClassName=''  to={`${url}/cast`}> Cast </NavLink> </li>
-
-                                    <li className={s.aditionalInf_item}>  <NavLink activeClassName=''  to={`${url}/reviews`}> Reviews </NavLink></li> 
+                                    <li className={s.aditionalInf_item}>  
+                                            <NavLink 
+                                                activeClassName=''
+                                                 to={{
+                                                    pathname: `${url}/cast`,
+                                                    state: {
+                                                        from: { location, label: `BACK TO...`},
+                                                    }
+                                                }}>   
+                                                     Cast 
+                                            </NavLink> 
+                                    </li>
+                                    
+                                    <li className={s.aditionalInf_item}>
+                                        <NavLink activeClassName=''
+                                            // to={`${url}/reviews`}>
+                                            to={{
+                                                pathname: `${url}/reviews`,
+                                                state: {
+                                                    from: { location, label: `BACK TO...`},
+                                                }
+                                            }}> 
+                                                 Reviews
+                                        </NavLink>
+                                    </li> 
+                                    
                                 </ul>
                                 {/* Пример вложенного маршрута */}
                                 <Route  path='/movies/:movieID/cast'>  <Cast/> </Route>
                                 <Route  path='/movies/:movieID/reviews'>   <Reviews/> </Route>
                     </div>
             }
-            <a href="#pageTop" className={s.goUpBtn}>
-                <ImArrowUp2 style={{marginRight: 10 }}/>
-                 Go up
-            </a> 
+           
 
     </div>
     )

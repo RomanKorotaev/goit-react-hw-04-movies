@@ -1,9 +1,10 @@
 import {useParams} from "react-router-dom"
 import { useState,   useEffect} from 'react';
 import person from '../../image/person.png'
-import human from '../../image/human.png'
 
 import  MovieService from '../../components/Services/MovieService'
+
+import { useHistory, useLocation } from "react-router";
 
 import s from './Cast.module.css'
 
@@ -30,9 +31,11 @@ function Cast () {
 
         }, [])
 
-        console.log ("moviesCast : ", moviesCast)
-        let TEST_VAR = null;
+        
 
+        const history = useHistory();
+        const location = useLocation ();
+        
         return  (
             <div>  <h2 className={s.trending_title}> Actors:  </h2>
             
@@ -46,7 +49,7 @@ function Cast () {
 
                                             {profile_path
                                             ? <img  className={s.actorPhoto} alt= 'Picture of actor.'  src={`https://image.tmdb.org/t/p/w200/${profile_path} ` }/>
-                                            : <img  className={s.actorPhoto} alt= 'Pic of actor.'  src={human}/>
+                                            : <img  className={s.actorPhoto} alt= 'Picture of actor.'  src={person}/>
                                             }
                                         
                                     </div>
